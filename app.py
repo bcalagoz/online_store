@@ -9,10 +9,11 @@ import os
 
 app = Flask(__name__)
 
+
 app.config['MONGODB_SETTINGS'] = {
     "db": os.getenv("DATABASE_NAME"),
     "host": os.getenv("DATABASE_HOST"),
-    "port": os.getenv("DATABASE_PORT")
+    "port": int(os.getenv("DATABASE_PORT"))
 }
 
 db = MongoEngine(app)
